@@ -2,6 +2,23 @@
 @client_secret = secret
 @scope = message.read message.write
 
+@baseUrl =  http://localhost:9000
+
+# actuator health check
+GET {{baseUrl}}/actuator/health
+
+###
+
+# actuator kubernetes readiness check
+GET {{baseUrl}}/actuator/health/readiness
+
+###
+
+# actuator kubernetes liveness check
+GET {{baseUrl}}/actuator/health/liveness
+
+###
+
 POST http://localhost:9000/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic b2lkYy1jbGllbnQ6c2VjcmV0
